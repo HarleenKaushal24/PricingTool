@@ -779,7 +779,7 @@ def main():
         
             
 # Run the app
-if __name__ == "__main__":
+if st.session_state["logged_in"]:
     main()
 
 
