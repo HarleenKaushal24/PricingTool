@@ -142,7 +142,7 @@ def main():
 
     recipe_machines = RCP['Machine'].dropna().unique()
     
-    page = st.sidebar.radio('Navigate:', [ 'Base Selection', 'Results'])
+    page = st.sidebar.radio('Navigate:', [ 'Base Selection'])
 
     if page == 'Base Selection':
         
@@ -769,7 +769,7 @@ def main():
             st.session_state["res1"] = res1
 
             st.write(res1)
-            st.write(resTemp) 
+            #st.write(resTemp) 
             #st.write(match1)
         
         
