@@ -156,7 +156,7 @@ def main():
         st.write(i)
         cookie_name = st.text_input(f"Enter name of cookie {i+1}:")
         
-        typ = st.radio("Source of Base", ['Cutter/Waterjet', 'Janssen', 'Depositor','Selmi'] ,key=f"base_selection_{i}" )
+        typ = st.radio("Source of Base", ['Cutter/Waterjet', 'Janssen', 'Depositor'] ,key=f"base_selection_{i}" )
                 
         if typ== 'Cutter/Waterjet':   
             base1 = df_Base[df_Base['BSE'].astype(str).str.startswith('1')]
@@ -331,14 +331,7 @@ def main():
                         rcp_col_sel_cost2['People']=1
                         rcp_col_sel_cost2['Stage']= "Colour Mixing (E)"
                         rcp_col_sel_cost2['Machine']= "Colour Mixers"
-                        # Ing1 = rcp_col_sel_cost[['Ingredients', 'IngQty', 'Last Evaluated Price (/kg)', 
-                        #                     'Recipe_Batch_Size_KG', 'Minutes_Batch']].drop_duplicates()
-                        
-                        # Ing1["Setup Time"] = setupcol
-                        # Ing1["Mixer Wage"] = w2
-                        # Ing1['MaterialCost/Qty_Reqd']=rcp_col_sel_cost1['MaterialCost/Qty_Reqd'].values[0]
-                        # Ing1['Labour&SetupCost/Qty_Reqd']=rcp_col_sel_cost1['Labour&SetupCost/Qty_Reqd'].values[0]
-                        # st.write(Ing1)
+
                         
                         ##################
                         
@@ -745,8 +738,8 @@ def main():
             
         res['MaterialCost']=res['B_MaterialCost'] + res['E_MaterialCost'] + res['R_MaterialCost'] + res['Dough_MaterialCost'] + res['Color_E_MaterialCost'] + res['Color_R_MaterialCost']
         res['Labour&SetupCost']=res['B_Labour&SetupCost'] + res['E_Labour&SetupCost'] + res['R_Labour&SetupCost'] + res['Dough_Labour&SetupCost'] + res['Color_E_Labour&SetupCost'] + res['Color_R_Labour&SetupCost']
-        res['TotalCost']=res['MaterialCost'] + res['OrderQty']
-        res['MaterialCost/Cookie']=res['MaterialCost'] / res['Labour&SetupCost']
+        res['TotalCost']=res['MaterialCost'] + res['Labour&SetupCost']
+        res['MaterialCost/Cookie']=res['MaterialCost'] / res['OrderQty']
         res['Labour&SetupCost/Cookie']=res['Labour&SetupCost'] / res['OrderQty']
         res['TotalCost/Cookie']=res['TotalCost'] / res['OrderQty']
         
